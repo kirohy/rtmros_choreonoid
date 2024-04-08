@@ -39,7 +39,7 @@ if __name__ == '__main__':
         sprox = rospy.ServiceProxy('/SequencePlayerServiceROSBridge/setInterpolationMode',
                                    hrpsys_ros_bridge.srv.OpenHRP_SequencePlayerService_setInterpolationMode)
         res = sprox(hrpsys_ros_bridge.msg.OpenHRP_SequencePlayerService_interpolationMode.LINEAR)
-    except rospy.ServiceException, e:
+    except rospy.ServiceException as e:
         print("Service call failed: %s"%e)
 
     ### action

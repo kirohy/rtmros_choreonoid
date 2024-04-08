@@ -80,8 +80,8 @@ def get_all_state(self):
             else:
                 flat_list.append(node)
         return flat_list
-    tmp = flatten(self._map.values())
-    return list(set(flatten([[i.keys() for i in tmp], [i.values() for i in tmp]])))
+    tmp = flatten(list(self._map.values()))
+    return list(set(flatten([[list(i.keys()) for i in tmp], [list(i.values()) for i in tmp]])))
 
 ## add_event
 def add_event(self, cfg):

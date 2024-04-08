@@ -31,15 +31,15 @@ class ChoreonoidHrpsysConfiguratorOrg(URATAHrpsysConfigurator):
         if self.abc:
             self.connectLoggerPort(self.abc, 'rfsensor')
             self.connectLoggerPort(self.abc, 'lfsensor')
-        for pn in filter (lambda x : re.match("Trans_", x), self.rh.ports.keys()):
+        for pn in [x for x in list(self.rh.ports.keys()) if re.match("Trans_", x)]:
             self.connectLoggerPort(self.rh, pn)
         ##self.connectLoggerPort(self.abc, 'rhsensor')
         ##self.connectLoggerPort(self.abc, 'lhsensor')
 
     def connectConstraintForceLoggerPorts(self):
-        for pn in filter (lambda x : re.match("T_", x), self.rh.ports.keys()):
+        for pn in [x for x in list(self.rh.ports.keys()) if re.match("T_", x)]:
             self.connectLoggerPort(self.rh, pn)
-        for pn in filter (lambda x : re.match("F_", x), self.rh.ports.keys()):
+        for pn in [x for x in list(self.rh.ports.keys()) if re.match("F_", x)]:
             self.connectLoggerPort(self.rh, pn)
 
     def init (self, robotname="Robot", url="", connect_constraint_force_logger_ports = False):

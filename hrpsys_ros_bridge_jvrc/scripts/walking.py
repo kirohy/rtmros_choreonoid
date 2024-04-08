@@ -46,10 +46,10 @@ def g(x,y,r):
     hcf.abc_svc.goPos(x, y, r)
     hcf.abc_svc.waitFootSteps()
 def h():
-    print "funcs, d()=default_mode, s()=speedup_mode, g(x, y, r)=go_pos"
+    print("funcs, d()=default_mode, s()=speedup_mode, g(x, y, r)=go_pos")
 
 def m():
-    print "funcs, d()=default_mode, s()=speedup_mode, g(x, y, r)=go_pos"
+    print("funcs, d()=default_mode, s()=speedup_mode, g(x, y, r)=go_pos")
 def dor():
     doa()
 # copy from hrpsys/lib/python2.7/dist-packages/hrpsys_config.py
@@ -83,9 +83,9 @@ if __name__ == '__main__':
             hcf.waitForRTCManagerAndRoboHardware(robotname=sys.argv[1])
             sys.argv = [sys.argv[0]] + sys.argv[2:]
         hcf.findComps()
-        print >> sys.stderr, "[hrpsys.py] #\n[hrpsys.py] # use `hcf` as robot interface, for example hcf.getJointAngles()\n[hrpsys.py] #"
+        print("[hrpsys.py] #\n[hrpsys.py] # use `hcf` as robot interface, for example hcf.getJointAngles()\n[hrpsys.py] #", file=sys.stderr)
         while args.c != None:
-            print >> sys.stderr, ">>", args.c[0]
+            print(">>", args.c[0], file=sys.stderr)
             exec(args.c[0])
             args.c.pop(0)
         hcf.startStabilizer()

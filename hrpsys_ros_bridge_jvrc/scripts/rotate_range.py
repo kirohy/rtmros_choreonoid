@@ -40,7 +40,7 @@ if __name__ == '__main__':
                                    hrpsys_ros_bridge.srv.OpenHRP_SequencePlayerService_setInterpolationMode)
         res = sprox(hrpsys_ros_bridge.msg.OpenHRP_SequencePlayerService_interpolationMode.LINEAR)
     except rospy.ServiceException, e:
-        print "Service call failed: %s"%e
+        print("Service call failed: %s"%e)
 
     ### action
     rangeAct = actionlib.SimpleActionClient('/range_controller/follow_joint_trajectory_action',

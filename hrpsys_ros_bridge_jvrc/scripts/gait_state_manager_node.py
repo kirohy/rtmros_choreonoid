@@ -44,7 +44,7 @@ class GaitStateManager():
         return hrpsys_ros_bridge_jvrc.srv.StringRequestResponse(result)
 
     def __change_state_cb(self, e):
-        print e
+        print(e)
         text = jsk_rviz_plugins.msg.OverlayText()
         text.text = 'GaitState: ' + e.dst
         text.top = 10

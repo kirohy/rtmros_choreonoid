@@ -89,7 +89,7 @@ def add_event(self, cfg):
     callbacks = cfg['callbacks'] if 'callbacks' in cfg else {}
     tmap = self._map
     def add(e):
-        src = [e['src']] if isinstance(e['src'], basestring) else e['src']
+        src = [e['src']] if isinstance(e['src'], str) else e['src']
         if e['name'] not in tmap:
             tmap[e['name']] = {}
         for s in src:

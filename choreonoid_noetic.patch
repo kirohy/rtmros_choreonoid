@@ -50,9 +50,17 @@ index 504d56c7..8f22b7cc 100644
      list(APPEND OPENRTM_DEFINITIONS -DUSE_BUILTIN_CAMERA_IMAGE_IDL)
    else()
 diff --git a/package.xml b/package.xml
-index 5e1e1e32..a4cc62a4 100644
+index 5e1e1e32..ca8d0594 100644
 --- a/package.xml
 +++ b/package.xml
+@@ -1,6 +1,6 @@
+ <?xml version="1.0"?>
+ 
+-<package format="2">
++<package format="3">
+ 
+   <name>choreonoid</name>
+   <version>1.7.0</version>
 @@ -23,8 +23,9 @@
    <exec_depend>yaml</exec_depend>
    <depend>zlib</depend>
@@ -64,14 +72,16 @@ index 5e1e1e32..a4cc62a4 100644
    <exec_depend>assimp</exec_depend>
  
    <build_export_depend>qtbast5-dev</build_export_depend>
-@@ -37,8 +38,8 @@
+@@ -37,8 +38,10 @@
    <exec_depend>libqt5-opengl</exec_depend>
    <exec_depend>opengl</exec_depend>
  
 -  <depend>python</depend>
 -  <depend>python-numpy</depend>
-+  <!-- <depend>python</depend> -->
-+  <!-- <depend>python-numpy</depend> -->
++  <depend condition="$ROS_PYTHON_VERSION == 2">python</depend>
++  <depend condition="$ROS_PYTHON_VERSION == 2">python-numpy</depend>
++  <depend condition="$ROS_PYTHON_VERSION == 3">python3</depend>
++  <depend condition="$ROS_PYTHON_VERSION == 3">python3-numpy</depend>
  
    <build_depend>libpulse-dev</build_depend>
    <build_depend>libsndfile1-dev</build_depend>

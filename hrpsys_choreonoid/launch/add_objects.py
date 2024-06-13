@@ -46,14 +46,16 @@ def parse_filename(filestr):
         pkgname = ret.group(1)
         #packagepath = commands.getoutput('rospack find %s'%(pkgname))
         packagepath = subprocess.check_output(['rospack', 'find', pkgname])
-        packagepath = packagepath.decode().rstrip('\n')
+        if sys.version_info >= (3,):
+            packagepath = packagepath.decode()
+        packagepath = packagepath.rstrip('\n')
         filestr = filestr[:ret.start(0)] + packagepath + filestr[ret.end(0):]
 
     return filestr
 
 try:
     f = open(objs_yaml, 'r')
-    dict_objs = yaml.load(f)
+    dict_objs = yaml.load(f, Loader=yaml.SafeLoader)
     f.close()
 except:
     print("can not read %s"%(objs_yaml), file=sys.stderr)
